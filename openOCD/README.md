@@ -1,5 +1,5 @@
 # OpenOCD Tools
-This is collection is for using Open On Chip Debugger with the Xillinx Zynq processors. Spefically, I have used it to debug a Digilent Zybo. It uses the Dual Channel FTDI chip for JTAG and UART debugging. OpenOCD supports other Digilent JTAG interfaces, but the Zybo Board has a different USB vendor ID, so it is not automaticallty recognized. 
+This collection is for using Open On Chip Debugger with the Xillinx Zynq processors. Specifically, it has been used to debug a Digilent Zybo. It uses the dual channel FTDI chip for JTAG and UART debugging. OpenOCD supports other Digilent JTAG interfaces, but the Zybo Board has a different USB vendor ID, so it is not automaticallty recognized. 
 
 
 ## Setup
