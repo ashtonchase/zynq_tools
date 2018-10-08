@@ -65,27 +65,34 @@ xilinx_ps7_init
 
 ## GDB Access
 
-Using the Linaro toolchain that can be downloaded as a part of this repo, you can utlize openOCB with GDB.
+You can use OpenOCD in combination with GDB int the GCC toolchain.
 
+Note there is a .gdbinit file in this folder that you can copy to ~/ . This init file will automatically be loaded when you run GDB.
+
+Example of using the GDB and the .gdbinit file using the Linaro toolchain that can be downloaded as a part of this repo is shown below:
 ```
-repo/zynq_tools/toolchain/Linaro/gcc-linaro-7.1.1-2017.08-x86_64_arm-eabi/bin/arm-none-eabi-gdb
+repo/zynq_tools/toolchain/Linaro/gcc-linaro-7.1.1-2017.08-x86_64_arm-eabi/bin/arm-eabi-gdb
 zynq-connect
 ```
 
 If you are in the folder where your ELF file is located, run this:
 ```
+repo/zynq_tools/toolchain/Linaro/gcc-linaro-7.1.1-2017.08-x86_64_arm-eabi/bin/arm-eabi-gdb *.ELF
+zynq-connect
 zynq-restart
+load
+```
+Another way to perform this is with DDD, a graphical debugging tool for GDB. Once again, if your current directory contains your ELF file, run this:
+```
+ddd --debugger <zynq_tools directory>/toolchain/Linaro/gcc-linaro-7.1.1-2017.08-x86_64_arm-eabi/bin/arm-eabi-gdb <your_ELF_file.elf>
 ```
 
-otherwise run the following:
+Once in DDD, run the same commands as you would in the GDB CLI
 ```
- mon xilinx_ps7_init
- mon load_image *.elf 0x10000 elf
- mon resume 0
- mon sleep 2000
- mon halt
+zynq-connect
+zynq-restart
+load
 ```
-
 
 
 
